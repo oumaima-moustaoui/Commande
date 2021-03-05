@@ -2,6 +2,8 @@ package com.example.demo.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +14,6 @@ public interface CommandeDao extends JpaRepository<Commande, Long>{
 	List<Commande>findByTotal(double total);
 
 	List<Commande>findByAnnee(int annee);
-	
+	@Transactional
 	int deleteByRef(String ref);
 }
